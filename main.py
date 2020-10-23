@@ -7,7 +7,13 @@ from email.mime.multipart import MIMEMultipart
 from jinja2 import Environment, FileSystemLoader
 
 
-def send_mail(from_email, from_pwd, to_email, bodyContent, subject):
+def send_mail(
+    from_email: str,
+    from_pwd: str,
+    to_email: str,
+    bodyContent: dict,
+    subject: str,
+) -> None:
     message = MIMEMultipart()
     message["Subject"] = subject
     message["From"] = from_email
@@ -24,7 +30,7 @@ def send_mail(from_email, from_pwd, to_email, bodyContent, subject):
     server.quit()
 
 
-def get_data(json_data):
+def get_data(json_data: dict) -> dict:
     xml_index = json_data["Exception"].find("<?xml")
     root = ET.fromstring(json_data["Exception"][xml_index:])
 
@@ -38,7 +44,7 @@ def get_data(json_data):
     return json_data
 
 
-def main(mail_details):
+def main(mail_details: dict) -> str:
     json_data = get_data(mail_details)
     template = env.get_template("child.html")
     output = template.render(data=json_data)
