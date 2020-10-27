@@ -45,15 +45,18 @@ def get_data(json_data: dict) -> dict:
 
 
 def main(mail_details: dict) -> str:
-    json_data = get_data(mail_details)
+    # json_data = get_data(mail_details)
     template = env.get_template("child.html")
-    output = template.render(data=json_data)
+
+    # output = template.render(data=json_data)
+    output = template.render(data=mail_details)
+
     send_mail(
         "umang.keshri144@gmail.com",
         "*****",
         "umang.keshri144@gmail.com",
         output,
-        json_data["Error"],
+        mail_details["Exception"][: mail_details["Exception"].find("<?xml")],
     )
     return "Mail sent successfully."
 

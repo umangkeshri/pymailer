@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     <ul>
-    {% for key, value in data.items() %} {% if key != "Error" %}
-    <li><b>{{ key }}</b> : {{ value }}</li>
-    {% endif %} {% endfor %}
+    {% for key, value in data.items() %} 
+    {% if key == "Exception" %}
+        <li><b>{{key}}</b> : {{value|e}}</li>
+    {% else %}
+        <li><b>{{ key }}</b> : {{ value }}</li>
+    {% endif %}
+    {% endfor %}
     </ul>
 {% endblock %}
