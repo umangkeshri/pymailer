@@ -52,9 +52,9 @@ def main(mail_details: dict) -> str:
     output = template.render(data=mail_details)
 
     send_mail(
-        "umang.keshri144@gmail.com",
-        "*****",
-        "umang.keshri144@gmail.com",
+        "<From-Email>",
+        "<Password>",
+        "<To-Email>",
         output,
         mail_details["Exception"][: mail_details["Exception"].find("<?xml")],
     )
