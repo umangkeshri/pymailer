@@ -9,6 +9,8 @@ Sending mails with HTML template using Python.
 * Execute `python main.py` on command line.
 
 > Note: Kindly enable access to less secure apps and skip captcha while using gmail id from below links:
-    >> [Less secure app access](https://myaccount.google.com/lesssecureapps)
-    >> [Clearing Captcha](https://accounts.google.com/DisplayUnlockCaptcha)
+
+> * [Less secure app access](https://myaccount.google.com/lesssecureapps)
+
+> * [Clearing Captcha](https://accounts.google.com/DisplayUnlockCaptcha)
 
